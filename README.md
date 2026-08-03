@@ -19,10 +19,10 @@ setpoint changes, no customers dropped, nothing overloaded. Regenerate it with
 
 ## Does the agent actually help?
 
-Not obviously — which is why the benchmark exists. Fifty seeded incidents,
-each replayed under four operators, scored on megawatts of load lost
-(shedding counts against you, because a customer without power does not care
-why).
+Not obviously — which is why the benchmark exists. Fifty seeded incidents, each
+replayed under every operator policy and scored on megawatts of load lost.
+Shedding counts against you: a customer without power does not care whether an
+operator or a relay dropped them.
 
 | policy | mean MW lost | worst MW | damage avoided | contained | made worse | benign incidents damaged |
 |---|---|---|---|---|---|---|
@@ -43,11 +43,12 @@ entire margin over the heuristic:
 | without the what-if guardrail | 93 | +21% | 3 / 30 |
 | without the sensitivity tool | 102 | +13% | 2 / 30 |
 
-Blind redispatch is worse than unchecked redispatch: an agent that cannot ask
-which generators affect which line spends its reserve on units that do not help,
-and only avoids 13% of the damage. Both ablations ran on the same 30 damaging
-incidents; the sensitivity ablation skipped the benign set, so its
-benign-damage figure is not comparable and is omitted.
+Acting blind hurts more than acting unchecked. An agent that cannot ask which
+generators affect which line spends its limited reserve on units that barely
+move the flow, and avoids only 13% of the damage — worse than the same agent
+allowed to commit unsimulated plans. Both ablations ran on the same 30 damaging
+incidents; the sensitivity ablation skipped the benign set, so its benign-damage
+figure is not comparable and is omitted.
 
 Four findings worth more than the headline number:
 
@@ -77,6 +78,16 @@ information is worth almost twice that. Guardrails stop bad decisions;
 better information prevents them.
 
 ![per-incident results](results/figures/per_scenario.png)
+
+### What these numbers are not
+
+Every agent row is a single pass of `claude-haiku-4-5` at default temperature,
+about 74 seconds and 7k input tokens per incident (the sensitivity tool costs a
+DC solve per candidate generator, not tokens). One pass per incident is enough to
+separate the ablations, which differ by 10-20 MW, but it is not enough to call a
+5 MW gap over the redispatch heuristic significant — hence the win/tie/loss
+count, which is the honest version of that comparison. Repeated runs per
+incident, and a stronger model, are the obvious next step.
 
 ## What the operator can do
 
