@@ -16,7 +16,7 @@ from pathlib import Path
 import numpy as np
 
 from gridpilot.benchmark import load as load_bench
-from gridpilot.policies import GreedyShed, RedispatchRelief
+from gridpilot.policies import GreedyShed, GreedyShedWithCheck, RedispatchRelief
 from gridpilot.runner import run_scenario
 from gridpilot.scenarios import make_scenario
 
@@ -28,6 +28,8 @@ def make_policy(spec: str, model: str):
         return None
     if spec == "greedy_shed":
         return GreedyShed()
+    if spec == "greedy_checked":
+        return GreedyShedWithCheck()
     if spec == "redispatch_relief":
         return RedispatchRelief()
     from gridpilot.agent import AgentOperator

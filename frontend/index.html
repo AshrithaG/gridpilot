@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GridPilot — break a power grid, watch an agent save it</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>GridPilot</h1>
+  <p class="sub">IEEE 118-bus transmission grid, live cascading-failure simulation.
+     Click any line to trip it, then let the operator respond.</p>
+</header>
+
+<main>
+  <section class="stage">
+    <div class="toolbar">
+      <label>Incident
+        <select id="scenario"><option value="">— pick a scripted incident —</option></select>
+      </label>
+      <button id="btn-step">Advance 1 tick</button>
+      <button id="btn-settle">Run to settle</button>
+      <button id="btn-agent" class="primary">Call the AI operator</button>
+      <button id="btn-heuristic">Run heuristic</button>
+      <button id="btn-reset">Reset grid</button>
+    </div>
+
+    <div class="mapwrap">
+      <svg id="map" viewBox="0 0 1000 640" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="legend">
+        <span><i class="sw" style="background:#3f6f4a"></i>&lt;70%</span>
+        <span><i class="sw" style="background:#c8a02a"></i>70–90%</span>
+        <span><i class="sw" style="background:#d9772e"></i>90–100%</span>
+        <span><i class="sw" style="background:#d64545"></i>overloaded</span>
+        <span><i class="sw dashed"></i>tripped</span>
+        <span><i class="sw" style="background:#6b7280;border-radius:50%"></i>de-energized bus</span>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric"><span class="k">Load served</span><span class="v" id="m-served">—</span></div>
+      <div class="metric bad"><span class="k">Load lost</span><span class="v" id="m-lost">—</span></div>
+      <div class="metric"><span class="k">Lines out</span><span class="v" id="m-out">—</span></div>
+      <div class="metric"><span class="k">Overloaded now</span><span class="v" id="m-over">—</span></div>
+      <div class="metric"><span class="k">Islands</span><span class="v" id="m-islands">—</span></div>
+      <div class="metric warn"><span class="k">If you do nothing</span><span class="v" id="m-forecast">—</span></div>
+    </div>
+  </section>
+
+  <aside>
+    <div class="panel">
+      <h2>Operator console <span id="agent-state" class="badge idle">idle</span></h2>
+      <div id="transcript" class="scroll">
+        <p class="hint">Trip a line (or load an incident), then press
+           <strong>Call the AI operator</strong>. Its tool calls appear here as it works.
+           It can look up which generators relieve an overloaded line, simulate a plan
+           before committing, and only then act.</p>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Event log</h2>
+      <div id="events" class="scroll small"></div>
+    </div>
+  </aside>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

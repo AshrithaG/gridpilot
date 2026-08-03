@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gridpilot",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": ["run", "uvicorn", "gridpilot.server:app", "--port", "8137"],
+      "port": 8137
+    }
+  ]
+}

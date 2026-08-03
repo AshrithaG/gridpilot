@@ -129,7 +129,7 @@ def layout(net) -> dict[int, tuple[float, float]]:
 
     xs = np.array([p[0] for p in pos.values()])
     ys = np.array([p[1] for p in pos.values()])
-    span = max(xs.ptp(), ys.ptp()) or 1.0
+    span = max(np.ptp(xs), np.ptp(ys)) or 1.0
     out = {
         int(b): (float((p[0] - xs.min()) / span), float((p[1] - ys.min()) / span))
         for b, p in pos.items()

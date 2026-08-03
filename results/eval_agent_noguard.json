@@ -1,0 +1,1862 @@
+{
+  "config": {
+    "policies": [
+      "agent_no_guardrail"
+    ],
+    "n_damaging": 30,
+    "n_benign": 20,
+    "model": "claude-haiku-4-5-20251001",
+    "workers": 6,
+    "max_decision_points": 3,
+    "tag": "agent_noguard"
+  },
+  "summary": {
+    "agent_no_guardrail": {
+      "n_damaging": 30,
+      "n_benign": 20,
+      "mean_load_lost_mw": 92.6,
+      "median_load_lost_mw": 66.8,
+      "max_load_lost_mw": 274.8,
+      "mean_mw_saved_vs_no_action": 24.6,
+      "pct_of_no_action_loss_avoided": 21.0,
+      "scenarios_fully_contained": 3,
+      "scenarios_made_worse": 3,
+      "benign_mean_load_lost_mw": 0.0,
+      "benign_scenarios_damaged": 0,
+      "mean_seconds": 70.6,
+      "counters": {
+        "turns": 238,
+        "unparseable": 0,
+        "invalid_actions": 2,
+        "guardrail_rejections": 0,
+        "what_if_calls": 55,
+        "applied": 36
+      },
+      "input_tokens": 316353,
+      "output_tokens": 4995
+    }
+  },
+  "rows": [
+    {
+      "scenario": "s001",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 6.1,
+      "load_served_mw": 4308.0,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 791,
+        "output_tokens": 9
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 1,
+      "seconds": 15.4,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s004",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 22.2,
+      "load_served_mw": 4258.0,
+      "buses_dark": 1,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 2254,
+        "output_tokens": 22
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 4,
+      "seconds": 20.4,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s003",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 61.1,
+      "load_served_mw": 4257.3,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 1645,
+        "output_tokens": 22
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 3,
+      "seconds": 41.5,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 1,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s009",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4454.1,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": true,
+      "decision_points": 2,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 21,
+            "mw": 55.4
+          },
+          "result": "generator 21 set to 55.4 MW | {\"applied\":[\"generator 21 set to 55.4 MW\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":0.0}"
+        }
+      ],
+      "usage": {
+        "calls": 5,
+        "input_tokens": 5950,
+        "output_tokens": 101
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 9,
+      "seconds": 51.2,
+      "stats": {
+        "turns": 5,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 1,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s007",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 18.5,
+      "load_served_mw": 4342.3,
+      "buses_dark": 1,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 7,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 2,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 4,
+            "mw": 450.0
+          },
+          "result": "generator 4 set to 450.0 MW | {\"applied\":[\"generator 4 set to 450.0 MW\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":18.5}"
+        }
+      ],
+      "usage": {
+        "calls": 6,
+        "input_tokens": 6975,
+        "output_tokens": 112
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 7,
+      "seconds": 74.9,
+      "stats": {
+        "turns": 6,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 1,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s008",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 58.6,
+      "load_served_mw": 4230.0,
+      "buses_dark": 3,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "open_line",
+            "line": 69
+          },
+          "result": "opened line 69 | {\"applied\":[\"opened line 69\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":58.6}"
+        }
+      ],
+      "usage": {
+        "calls": 6,
+        "input_tokens": 7531,
+        "output_tokens": 144
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 8,
+      "seconds": 62.0,
+      "stats": {
+        "turns": 6,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s011",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4454.1,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": true,
+      "decision_points": 2,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 4,
+            "mw": 462.5
+          },
+          "result": "generator 4 set to 462.5 MW | {\"applied\":[\"generator 4 set to 462.5 MW\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":0.0}"
+        }
+      ],
+      "usage": {
+        "calls": 5,
+        "input_tokens": 5840,
+        "output_tokens": 111
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 11,
+      "seconds": 40.9,
+      "stats": {
+        "turns": 5,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 1,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s000",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4454.1,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": true,
+      "decision_points": 2,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 21,
+            "mw": 55.4
+          },
+          "result": "generator 21 set to 55.4 MW; generator 20 set to 235.6 MW; generator 4 set to 470.0 MW | {\"applied\":[\"generator 21 set to 55.4 MW\",\"generator 20 set to 235.6 MW\",\"generator 4 set to 470.0 MW\"],\"reject"
+        },
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 20,
+            "mw": 235.6
+          },
+          "result": "generator 21 set to 55.4 MW; generator 20 set to 235.6 MW; generator 4 set to 470.0 MW | {\"applied\":[\"generator 21 set to 55.4 MW\",\"generator 20 set to 235.6 MW\",\"generator 4 set to 470.0 MW\"],\"reject"
+        },
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 4,
+            "mw": 470.0
+          },
+          "result": "generator 21 set to 55.4 MW; generator 20 set to 235.6 MW; generator 4 set to 470.0 MW | {\"applied\":[\"generator 21 set to 55.4 MW\",\"generator 20 set to 235.6 MW\",\"generator 4 set to 470.0 MW\"],\"reject"
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 13760,
+        "output_tokens": 201
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 0,
+      "seconds": 117.9,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 1,
+        "applied": 3
+      }
+    },
+    {
+      "scenario": "s019",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 6.1,
+      "load_served_mw": 4337.7,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 1663,
+        "output_tokens": 35
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 19,
+      "seconds": 44.9,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 1,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s005",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 211.7,
+      "load_served_mw": 4064.2,
+      "buses_dark": 0,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 2,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 44,
+            "mw": 44.4
+          },
+          "result": "generator 44 set to 44.4 MW; generator 49 set to 39.9 MW | {\"applied\":[\"generator 44 set to 44.4 MW\",\"generator 49 set to 39.9 MW\"],\"rejected\":[],\"overloaded_now\":3,\"load_lost_mw\":0.0}"
+        },
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 49,
+            "mw": 39.9
+          },
+          "result": "generator 44 set to 44.4 MW; generator 49 set to 39.9 MW | {\"applied\":[\"generator 44 set to 44.4 MW\",\"generator 49 set to 39.9 MW\"],\"rejected\":[],\"overloaded_now\":3,\"load_lost_mw\":0.0}"
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 12827,
+        "output_tokens": 225
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 5,
+      "seconds": 175.6,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 2
+      }
+    },
+    {
+      "scenario": "s017",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 212.6,
+      "load_served_mw": 4080.3,
+      "buses_dark": 0,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 2,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 44,
+            "mw": 44.5
+          },
+          "result": "generator 44 set to 44.5 MW; generator 49 set to 40.1 MW | {\"applied\":[\"generator 44 set to 44.5 MW\",\"generator 49 set to 40.1 MW\"],\"rejected\":[],\"overloaded_now\":3,\"load_lost_mw\":0.0}"
+        },
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 49,
+            "mw": 40.1
+          },
+          "result": "generator 44 set to 44.5 MW; generator 49 set to 40.1 MW | {\"applied\":[\"generator 44 set to 44.5 MW\",\"generator 49 set to 40.1 MW\"],\"rejected\":[],\"overloaded_now\":3,\"load_lost_mw\":0.0}"
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 12534,
+        "output_tokens": 177
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 17,
+      "seconds": 93.6,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 2
+      }
+    },
+    {
+      "scenario": "s012",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 14.3,
+      "load_served_mw": 4439.8,
+      "buses_dark": 0,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 5,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 7,
+        "input_tokens": 7971,
+        "output_tokens": 100
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 12,
+      "seconds": 112.2,
+      "stats": {
+        "turns": 7,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s016",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 64.9,
+      "load_served_mw": 4236.5,
+      "buses_dark": 1,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 7,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 20,
+            "mw": 227.5
+          },
+          "result": "generator 20 set to 227.5 MW; generator 28 set to 437.2 MW | {\"applied\":[\"generator 20 set to 227.5 MW\",\"generator 28 set to 437.2 MW\"],\"rejected\":[],\"overloaded_now\":2,\"load_lost_mw\":33.5}"
+        },
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 28,
+            "mw": 437.2
+          },
+          "result": "generator 20 set to 227.5 MW; generator 28 set to 437.2 MW | {\"applied\":[\"generator 20 set to 227.5 MW\",\"generator 28 set to 437.2 MW\"],\"rejected\":[],\"overloaded_now\":2,\"load_lost_mw\":33.5}"
+        },
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 4,
+            "mw": 429.4
+          },
+          "result": "generator 4 set to 429.4 MW; generator 11 set to 298.2 MW | {\"applied\":[\"generator 4 set to 429.4 MW\",\"generator 11 set to 298.2 MW\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":33.5}"
+        },
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 11,
+            "mw": 298.2
+          },
+          "result": "generator 4 set to 429.4 MW; generator 11 set to 298.2 MW | {\"applied\":[\"generator 4 set to 429.4 MW\",\"generator 11 set to 298.2 MW\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":33.5}"
+        }
+      ],
+      "usage": {
+        "calls": 9,
+        "input_tokens": 13733,
+        "output_tokens": 278
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 16,
+      "seconds": 131.4,
+      "stats": {
+        "turns": 9,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 4
+      }
+    },
+    {
+      "scenario": "s023",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 40.1,
+      "load_served_mw": 4316.5,
+      "buses_dark": 0,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 7,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 3,
+        "input_tokens": 2890,
+        "output_tokens": 30
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 23,
+      "seconds": 35.2,
+      "stats": {
+        "turns": 3,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s026",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 12.2,
+      "load_served_mw": 4314.6,
+      "buses_dark": 1,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 2231,
+        "output_tokens": 22
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 26,
+      "seconds": 22.3,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s024",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 71.4,
+      "load_served_mw": 4382.7,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": false,
+      "decision_points": 2,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 1605,
+        "output_tokens": 14
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 24,
+      "seconds": 58.4,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s013",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 68.6,
+      "load_served_mw": 4211.6,
+      "buses_dark": 0,
+      "lines_tripped": 5,
+      "operator_shed_mw": 0.0,
+      "ticks": 7,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 2,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 38,
+            "mw": 641.8
+          },
+          "result": "generator 38 set to 641.8 MW | {\"applied\":[\"generator 38 set to 641.8 MW\"],\"rejected\":[],\"overloaded_now\":2,\"load_lost_mw\":0.0}"
+        },
+        {
+          "tick": 2,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 38,
+            "mw": 635.1
+          },
+          "result": "generator 38 set to 635.1 MW; generator 35 set to 476.4 MW | {\"applied\":[\"generator 38 set to 635.1 MW\",\"generator 35 set to 476.4 MW\"],\"rejected\":[],\"overloaded_now\":1,\"load_lost_mw\":0.0}"
+        },
+        {
+          "tick": 2,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 35,
+            "mw": 476.4
+          },
+          "result": "generator 38 set to 635.1 MW; generator 35 set to 476.4 MW | {\"applied\":[\"generator 38 set to 635.1 MW\",\"generator 35 set to 476.4 MW\"],\"rejected\":[],\"overloaded_now\":1,\"load_lost_mw\":0.0}"
+        }
+      ],
+      "usage": {
+        "calls": 13,
+        "input_tokens": 21160,
+        "output_tokens": 313
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 13,
+      "seconds": 178.2,
+      "stats": {
+        "turns": 13,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 3,
+        "applied": 3
+      }
+    },
+    {
+      "scenario": "s020",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 174.4,
+      "load_served_mw": 4101.6,
+      "buses_dark": 0,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 11385,
+        "output_tokens": 128
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 20,
+      "seconds": 103.8,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 1,
+        "guardrail_rejections": 0,
+        "what_if_calls": 4,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s025",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 14.3,
+      "load_served_mw": 4439.8,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": false,
+      "decision_points": 2,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 4,
+            "mw": 468.0
+          },
+          "result": "generator 4 set to 468.0 MW | {\"applied\":[\"generator 4 set to 468.0 MW\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":0.0}"
+        }
+      ],
+      "usage": {
+        "calls": 5,
+        "input_tokens": 5567,
+        "output_tokens": 102
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 25,
+      "seconds": 83.1,
+      "stats": {
+        "turns": 5,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 1,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s031",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 94.3,
+      "load_served_mw": 4207.1,
+      "buses_dark": 0,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 3,
+        "input_tokens": 3407,
+        "output_tokens": 41
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 31,
+      "seconds": 36.1,
+      "stats": {
+        "turns": 3,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 1,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s027",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 71.4,
+      "load_served_mw": 4382.7,
+      "buses_dark": 0,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": false,
+      "decision_points": 2,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 21,
+            "mw": 55.4
+          },
+          "result": "generator 21 set to 55.4 MW; generator 24 set to 179.0 MW; generator 25 set to 184.8 MW | {\"applied\":[\"generator 21 set to 55.4 MW\",\"generator 24 set to 179.0 MW\",\"generator 25 set to 184.8 MW\"],\"reje"
+        },
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 24,
+            "mw": 179.0
+          },
+          "result": "generator 21 set to 55.4 MW; generator 24 set to 179.0 MW; generator 25 set to 184.8 MW | {\"applied\":[\"generator 21 set to 55.4 MW\",\"generator 24 set to 179.0 MW\",\"generator 25 set to 184.8 MW\"],\"reje"
+        },
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 25,
+            "mw": 184.8
+          },
+          "result": "generator 21 set to 55.4 MW; generator 24 set to 179.0 MW; generator 25 set to 184.8 MW | {\"applied\":[\"generator 21 set to 55.4 MW\",\"generator 24 set to 179.0 MW\",\"generator 25 set to 184.8 MW\"],\"reje"
+        },
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "open_line",
+            "line": 7
+          },
+          "result": "opened line 7 | {\"applied\":[\"opened line 7\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":0.0}"
+        }
+      ],
+      "usage": {
+        "calls": 9,
+        "input_tokens": 14526,
+        "output_tokens": 242
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 27,
+      "seconds": 113.0,
+      "stats": {
+        "turns": 9,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 4
+      }
+    },
+    {
+      "scenario": "s030",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 274.8,
+      "load_served_mw": 4069.0,
+      "buses_dark": 0,
+      "lines_tripped": 7,
+      "operator_shed_mw": 0.0,
+      "ticks": 5,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 2,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 20,
+            "mw": 204.5
+          },
+          "result": "generator 20 set to 204.5 MW | {\"applied\":[\"generator 20 set to 204.5 MW\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":0.0}"
+        },
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "open_line",
+            "line": 61
+          },
+          "result": "opened line 61; opened line 52; opened line 53 | {\"applied\":[\"opened line 61\",\"opened line 52\",\"opened line 53\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":274.8}"
+        },
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "open_line",
+            "line": 52
+          },
+          "result": "opened line 61; opened line 52; opened line 53 | {\"applied\":[\"opened line 61\",\"opened line 52\",\"opened line 53\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":274.8}"
+        },
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "open_line",
+            "line": 53
+          },
+          "result": "opened line 61; opened line 52; opened line 53 | {\"applied\":[\"opened line 61\",\"opened line 52\",\"opened line 53\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":274.8}"
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 9489,
+        "output_tokens": 235
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 30,
+      "seconds": 99.3,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 4
+      }
+    },
+    {
+      "scenario": "s032",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 18.5,
+      "load_served_mw": 4342.3,
+      "buses_dark": 1,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 6,
+        "input_tokens": 7938,
+        "output_tokens": 80
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 32,
+      "seconds": 111.8,
+      "stats": {
+        "turns": 6,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 1,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s036",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 71.1,
+      "load_served_mw": 4179.3,
+      "buses_dark": 1,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 7,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 3,
+        "input_tokens": 2654,
+        "output_tokens": 23
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 36,
+      "seconds": 28.7,
+      "stats": {
+        "turns": 3,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s029",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 210.5,
+      "load_served_mw": 4040.0,
+      "buses_dark": 0,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 2,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 44,
+            "mw": 44.1
+          },
+          "result": "generator 44 set to 44.1 MW; generator 49 set to 39.7 MW | {\"applied\":[\"generator 44 set to 44.1 MW\",\"generator 49 set to 39.7 MW\"],\"rejected\":[],\"overloaded_now\":3,\"load_lost_mw\":0.0}"
+        },
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 49,
+            "mw": 39.7
+          },
+          "result": "generator 44 set to 44.1 MW; generator 49 set to 39.7 MW | {\"applied\":[\"generator 44 set to 44.1 MW\",\"generator 49 set to 39.7 MW\"],\"rejected\":[],\"overloaded_now\":3,\"load_lost_mw\":0.0}"
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 12723,
+        "output_tokens": 217
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 29,
+      "seconds": 196.2,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 1,
+        "guardrail_rejections": 0,
+        "what_if_calls": 3,
+        "applied": 2
+      }
+    },
+    {
+      "scenario": "s002",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4254.7,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": true,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 1051,
+        "output_tokens": 10
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 2,
+      "seconds": 11.4,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s033",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 252.2,
+      "load_served_mw": 4011.1,
+      "buses_dark": 0,
+      "lines_tripped": 7,
+      "operator_shed_mw": 100.0,
+      "ticks": 5,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 46,
+            "mw": 75.0
+          },
+          "result": "generator 46 set to 0.0 MW; shed 40.0 MW at bus 58; shed 40.0 MW at bus 89; shed 20.0 MW at bus 79 | {\"applied\":[\"generator 46 set to 0.0 MW\",\"shed 40.0 MW at bus 58\",\"shed 40.0 MW at bus 89\",\"shed 20"
+        },
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "shed_load",
+            "bus": 58,
+            "mw": 40.0
+          },
+          "result": "generator 46 set to 0.0 MW; shed 40.0 MW at bus 58; shed 40.0 MW at bus 89; shed 20.0 MW at bus 79 | {\"applied\":[\"generator 46 set to 0.0 MW\",\"shed 40.0 MW at bus 58\",\"shed 40.0 MW at bus 89\",\"shed 20"
+        },
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "shed_load",
+            "bus": 89,
+            "mw": 40.0
+          },
+          "result": "generator 46 set to 0.0 MW; shed 40.0 MW at bus 58; shed 40.0 MW at bus 89; shed 20.0 MW at bus 79 | {\"applied\":[\"generator 46 set to 0.0 MW\",\"shed 40.0 MW at bus 58\",\"shed 40.0 MW at bus 89\",\"shed 20"
+        },
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "shed_load",
+            "bus": 79,
+            "mw": 20.0
+          },
+          "result": "generator 46 set to 0.0 MW; shed 40.0 MW at bus 58; shed 40.0 MW at bus 89; shed 20.0 MW at bus 79 | {\"applied\":[\"generator 46 set to 0.0 MW\",\"shed 40.0 MW at bus 58\",\"shed 40.0 MW at bus 89\",\"shed 20"
+        }
+      ],
+      "usage": {
+        "calls": 6,
+        "input_tokens": 7367,
+        "output_tokens": 373
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 33,
+      "seconds": 160.0,
+      "stats": {
+        "turns": 6,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 4
+      }
+    },
+    {
+      "scenario": "s035",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 152.9,
+      "load_served_mw": 4131.5,
+      "buses_dark": 0,
+      "lines_tripped": 7,
+      "operator_shed_mw": 0.0,
+      "ticks": 5,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 9594,
+        "output_tokens": 101
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 35,
+      "seconds": 122.8,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s034",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 187.4,
+      "load_served_mw": 4101.2,
+      "buses_dark": 0,
+      "lines_tripped": 5,
+      "operator_shed_mw": 0.0,
+      "ticks": 5,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 4,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "open_line",
+            "line": 61
+          },
+          "result": "opened line 61 | {\"applied\":[\"opened line 61\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":187.4}"
+        }
+      ],
+      "usage": {
+        "calls": 11,
+        "input_tokens": 13997,
+        "output_tokens": 230
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 34,
+      "seconds": 131.2,
+      "stats": {
+        "turns": 11,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 4,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s015",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4242.0,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": true,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 1056,
+        "output_tokens": 10
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 15,
+      "seconds": 7.2,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s014",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4318.4,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": true,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 1053,
+        "output_tokens": 9
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 14,
+      "seconds": 11.0,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s018",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4259.0,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": true,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 1052,
+        "output_tokens": 10
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 18,
+      "seconds": 10.4,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s022",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4271.7,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": true,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 1054,
+        "output_tokens": 9
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 22,
+      "seconds": 11.2,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s028",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4335.3,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": true,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 1052,
+        "output_tokens": 9
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 28,
+      "seconds": 10.6,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s041",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4454.1,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": true,
+      "decision_points": 2,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 1582,
+        "output_tokens": 17
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 41,
+      "seconds": 19.2,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s037",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 186.0,
+      "load_served_mw": 4068.8,
+      "buses_dark": 1,
+      "lines_tripped": 8,
+      "operator_shed_mw": 0.0,
+      "ticks": 5,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 9604,
+        "output_tokens": 107
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 37,
+      "seconds": 85.1,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s046",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4292.9,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": true,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 1052,
+        "output_tokens": 10
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 46,
+      "seconds": 11.8,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s066",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4280.2,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": true,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 1052,
+        "output_tokens": 10
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 66,
+      "seconds": 8.1,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s069",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4254.7,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": true,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 1051,
+        "output_tokens": 10
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 69,
+      "seconds": 10.6,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s047",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4250.5,
+      "buses_dark": 0,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 7,
+      "contained": true,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 3,
+        "input_tokens": 3159,
+        "output_tokens": 24
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 47,
+      "seconds": 24.6,
+      "stats": {
+        "turns": 3,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s068",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4454.1,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": true,
+      "decision_points": 2,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 2109,
+        "output_tokens": 19
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 68,
+      "seconds": 23.8,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s091",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4318.4,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": true,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 1052,
+        "output_tokens": 10
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 91,
+      "seconds": 8.5,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s079",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4297.1,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": true,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 1055,
+        "output_tokens": 10
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 79,
+      "seconds": 13.1,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s076",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4301.4,
+      "buses_dark": 0,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 7,
+      "contained": true,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 3,
+        "input_tokens": 3154,
+        "output_tokens": 30
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 76,
+      "seconds": 28.6,
+      "stats": {
+        "turns": 3,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s093",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4454.1,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": true,
+      "decision_points": 2,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 2107,
+        "output_tokens": 19
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 93,
+      "seconds": 17.6,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s021",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 201.1,
+      "load_served_mw": 4096.1,
+      "buses_dark": 1,
+      "lines_tripped": 10,
+      "operator_shed_mw": 40.0,
+      "ticks": 4,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 1,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "shed_load",
+            "bus": 58,
+            "mw": 40.0
+          },
+          "result": "shed 40.0 MW at bus 58 | {\"applied\":[\"shed 40.0 MW at bus 58\"],\"rejected\":[],\"overloaded_now\":3,\"load_lost_mw\":40.0}"
+        }
+      ],
+      "usage": {
+        "calls": 22,
+        "input_tokens": 37312,
+        "output_tokens": 683
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 21,
+      "seconds": 394.7,
+      "stats": {
+        "turns": 22,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 11,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s010",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4246.2,
+      "buses_dark": 0,
+      "lines_tripped": 6,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": true,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_guardrail",
+          "action": {
+            "type": "redispatch",
+            "gen": 38,
+            "mw": 556.9
+          },
+          "result": "generator 38 set to 556.9 MW | {\"applied\":[\"generator 38 set to 556.9 MW\"],\"rejected\":[],\"overloaded_now\":1,\"load_lost_mw\":0.0}"
+        }
+      ],
+      "usage": {
+        "calls": 9,
+        "input_tokens": 12744,
+        "output_tokens": 148
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 10,
+      "seconds": 115.2,
+      "stats": {
+        "turns": 9,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s099",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4454.1,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": true,
+      "decision_points": 2,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 1840,
+        "output_tokens": 17
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 99,
+      "seconds": 27.5,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s103",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4454.1,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": true,
+      "decision_points": 2,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 2107,
+        "output_tokens": 16
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 103,
+      "seconds": 24.2,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s006",
+      "policy": "agent_no_guardrail",
+      "load_lost_mw": 0.0,
+      "load_served_mw": 4348.1,
+      "buses_dark": 0,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 3,
+      "contained": true,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 9048,
+        "output_tokens": 120
+      },
+      "policy_spec": "agent_no_guardrail",
+      "seed": 6,
+      "seconds": 194.2,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 3,
+        "applied": 0
+      }
+    }
+  ]
+}
