@@ -24,16 +24,32 @@ each replayed under four operators, scored on megawatts of load lost
 (shedding counts against you, because a customer without power does not care
 why).
 
-| policy | mean MW lost | worst MW | damage avoided | contained | made worse | benign incidents damaged | invalid actions |
-|---|---|---|---|---|---|---|---|
-| do nothing | 117 | 512 | +0% | 0 | 0 | 0 | 0 |
-| greedy load shedding | 194 | 716 | -65% | 0 | 11 | 2 | 0 |
-| redispatch heuristic | 85 | 213 | +27% | 3 | 1 | 0 | 0 |
-| LLM agent | 80 | 212 | +32% | 3 | 1 | 0 | 3 |
+| policy | mean MW lost | worst MW | damage avoided | contained | made worse | benign incidents damaged |
+|---|---|---|---|---|---|---|
+| do nothing | 117 | 512 | +0% | 0 | 0 | 0 |
+| greedy load shedding | 194 | 716 | **-65%** | 0 | 11 / 30 | 2 |
+| greedy, what-if checked | 120 | 512 | -3% | 0 | 1 / 30 | 0 |
+| redispatch heuristic | 85 | 213 | +27% | 3 | 1 / 30 | 0 |
+| **LLM agent** | **80** | **212** | **+32%** | 3 | 1 / 30 | 0 |
 
 ![policy comparison](results/figures/policies.png)
 
-Three findings worth more than the headline number:
+Removing either of the agent's two thinking tools costs more than the agent's
+entire margin over the heuristic:
+
+| agent configuration | mean MW lost | damage avoided | incidents made worse |
+|---|---|---|---|
+| full | 80 | +32% | 1 / 30 |
+| without the what-if guardrail | 93 | +21% | 3 / 30 |
+| without the sensitivity tool | 102 | +13% | 2 / 30 |
+
+Blind redispatch is worse than unchecked redispatch: an agent that cannot ask
+which generators affect which line spends its reserve on units that do not help,
+and only avoids 13% of the damage. Both ablations ran on the same 30 damaging
+incidents; the sensitivity ablation skipped the benign set, so its
+benign-damage figure is not comparable and is omitted.
+
+Four findings worth more than the headline number:
 
 **An eager operator is worse than no operator.** Greedy load shedding — the
 obvious rule, shed near whatever is overloaded — loses 65% *more* load than
@@ -52,7 +68,13 @@ eight turns per incident guessing field names (`new_mw`, `setpoint`,
 `action_type`) before landing a valid call — and in this simulation turns are
 the window before a relay trips. Rewriting the validation errors to quote the
 correct shape took invalid actions from routine to 3 across 264 turns, with no
-change to the model or the prompt.
+change to the model or the prompt. Error message text is a latency budget.
+
+**The guardrail earns its keep, but it is not the main lever.** Forcing every
+plan through a simulate-before-commit check is worth 13 MW and cuts
+made-things-worse incidents from 3 to 1. Giving the agent sensitivity
+information is worth almost twice that. Guardrails stop bad decisions;
+better information prevents them.
 
 ![per-incident results](results/figures/per_scenario.png)
 

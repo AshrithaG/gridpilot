@@ -1,0 +1,1095 @@
+{
+  "config": {
+    "policies": [
+      "agent_no_sensitivity"
+    ],
+    "n_damaging": 30,
+    "n_benign": 0,
+    "model": "claude-haiku-4-5-20251001",
+    "workers": 6,
+    "max_decision_points": 3,
+    "tag": "agent_nosens"
+  },
+  "summary": {
+    "agent_no_sensitivity": {
+      "n_damaging": 30,
+      "n_benign": 0,
+      "mean_load_lost_mw": 102.1,
+      "median_load_lost_mw": 82.8,
+      "max_load_lost_mw": 281.4,
+      "mean_mw_saved_vs_no_action": 15.0,
+      "pct_of_no_action_loss_avoided": 12.8,
+      "scenarios_fully_contained": 0,
+      "scenarios_made_worse": 2,
+      "benign_mean_load_lost_mw": 0.0,
+      "benign_scenarios_damaged": 0,
+      "mean_seconds": 83.4,
+      "counters": {
+        "turns": 198,
+        "unparseable": 0,
+        "invalid_actions": 5,
+        "guardrail_rejections": 0,
+        "what_if_calls": 77,
+        "applied": 18
+      },
+      "input_tokens": 240508,
+      "output_tokens": 3884
+    }
+  },
+  "rows": [
+    {
+      "scenario": "s007",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 18.5,
+      "load_served_mw": 4342.3,
+      "buses_dark": 1,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 7,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 3,
+        "input_tokens": 3178,
+        "output_tokens": 21
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 7,
+      "seconds": 40.8,
+      "stats": {
+        "turns": 3,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s001",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 6.1,
+      "load_served_mw": 4308.0,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 791,
+        "output_tokens": 10
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 1,
+      "seconds": 44.6,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s003",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 61.1,
+      "load_served_mw": 4257.3,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 791,
+        "output_tokens": 10
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 3,
+      "seconds": 44.9,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s004",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 22.2,
+      "load_served_mw": 4258.0,
+      "buses_dark": 1,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 3,
+        "input_tokens": 3365,
+        "output_tokens": 47
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 4,
+      "seconds": 49.9,
+      "stats": {
+        "turns": 3,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 1,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s005",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 220.1,
+      "load_served_mw": 4055.8,
+      "buses_dark": 0,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 2,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 6,
+        "input_tokens": 7274,
+        "output_tokens": 107
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 5,
+      "seconds": 69.9,
+      "stats": {
+        "turns": 6,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 4,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s008",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 35.4,
+      "load_served_mw": 4253.3,
+      "buses_dark": 2,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "open_line",
+            "line": 68
+          },
+          "result": "opened line 68 | {\"applied\":[\"opened line 68\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":35.4}"
+        }
+      ],
+      "usage": {
+        "calls": 6,
+        "input_tokens": 7245,
+        "output_tokens": 127
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 8,
+      "seconds": 57.7,
+      "stats": {
+        "turns": 6,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 3,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s011",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 14.3,
+      "load_served_mw": 4439.8,
+      "buses_dark": 0,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 8636,
+        "output_tokens": 120
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 11,
+      "seconds": 89.1,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 3,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s009",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 281.4,
+      "load_served_mw": 4172.7,
+      "buses_dark": 0,
+      "lines_tripped": 3,
+      "operator_shed_mw": 210.0,
+      "ticks": 4,
+      "contained": false,
+      "decision_points": 2,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "shed_load",
+            "bus": 48,
+            "mw": 91.4
+          },
+          "result": "shed 91.4 MW at bus 48; shed 118.7 MW at bus 53 | {\"applied\":[\"shed 91.4 MW at bus 48\",\"shed 118.7 MW at bus 53\"],\"rejected\":[],\"overloaded_now\":2,\"load_lost_mw\":210.0}"
+        },
+        {
+          "tick": 0,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "shed_load",
+            "bus": 53,
+            "mw": 118.7
+          },
+          "result": "shed 91.4 MW at bus 48; shed 118.7 MW at bus 53 | {\"applied\":[\"shed 91.4 MW at bus 48\",\"shed 118.7 MW at bus 53\"],\"rejected\":[],\"overloaded_now\":2,\"load_lost_mw\":210.0}"
+        },
+        {
+          "tick": 0,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "open_line",
+            "line": 164
+          },
+          "result": "opened line 164 | {\"applied\":[\"opened line 164\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":281.4}"
+        }
+      ],
+      "usage": {
+        "calls": 9,
+        "input_tokens": 12806,
+        "output_tokens": 270
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 9,
+      "seconds": 102.0,
+      "stats": {
+        "turns": 9,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 3,
+        "applied": 3
+      }
+    },
+    {
+      "scenario": "s019",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 6.1,
+      "load_served_mw": 4337.7,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 1,
+        "input_tokens": 791,
+        "output_tokens": 10
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 19,
+      "seconds": 8.2,
+      "stats": {
+        "turns": 1,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s000",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 14.3,
+      "load_served_mw": 4439.8,
+      "buses_dark": 1,
+      "lines_tripped": 6,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 9,
+        "input_tokens": 10280,
+        "output_tokens": 165
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 0,
+      "seconds": 163.3,
+      "stats": {
+        "turns": 9,
+        "unparseable": 0,
+        "invalid_actions": 1,
+        "guardrail_rejections": 0,
+        "what_if_calls": 3,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s016",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 114.9,
+      "load_served_mw": 4186.5,
+      "buses_dark": 1,
+      "lines_tripped": 4,
+      "operator_shed_mw": 50.0,
+      "ticks": 7,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 4,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "shed_load",
+            "bus": 41,
+            "mw": 50.0
+          },
+          "result": "shed 50.0 MW at bus 41 | {\"applied\":[\"shed 50.0 MW at bus 41\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":83.5}"
+        }
+      ],
+      "usage": {
+        "calls": 6,
+        "input_tokens": 6739,
+        "output_tokens": 117
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 16,
+      "seconds": 66.6,
+      "stats": {
+        "turns": 6,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 1,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s017",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 221.0,
+      "load_served_mw": 4071.9,
+      "buses_dark": 0,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 2,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "open_line",
+            "line": 154
+          },
+          "result": "opened line 154 | {\"applied\":[\"opened line 154\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":221.0}"
+        }
+      ],
+      "usage": {
+        "calls": 6,
+        "input_tokens": 7251,
+        "output_tokens": 135
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 17,
+      "seconds": 63.4,
+      "stats": {
+        "turns": 6,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 3,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s013",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 98.6,
+      "load_served_mw": 4181.6,
+      "buses_dark": 0,
+      "lines_tripped": 9,
+      "operator_shed_mw": 30.0,
+      "ticks": 7,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 2,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "shed_load",
+            "bus": 58,
+            "mw": 30.0
+          },
+          "result": "shed 30.0 MW at bus 58 | {\"applied\":[\"shed 30.0 MW at bus 58\"],\"rejected\":[],\"overloaded_now\":2,\"load_lost_mw\":30.0}"
+        }
+      ],
+      "usage": {
+        "calls": 11,
+        "input_tokens": 12778,
+        "output_tokens": 206
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 13,
+      "seconds": 128.1,
+      "stats": {
+        "turns": 11,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 5,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s012",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 14.3,
+      "load_served_mw": 4439.8,
+      "buses_dark": 0,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 4,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "open_line",
+            "line": 7
+          },
+          "result": "opened line 7 | {\"applied\":[\"opened line 7\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":14.3}"
+        }
+      ],
+      "usage": {
+        "calls": 12,
+        "input_tokens": 15574,
+        "output_tokens": 229
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 12,
+      "seconds": 152.9,
+      "stats": {
+        "turns": 12,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 5,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s023",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 40.1,
+      "load_served_mw": 4316.5,
+      "buses_dark": 0,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 7,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 3,
+        "input_tokens": 2890,
+        "output_tokens": 29
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 23,
+      "seconds": 41.5,
+      "stats": {
+        "turns": 3,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s024",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 71.4,
+      "load_served_mw": 4382.7,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": false,
+      "decision_points": 2,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 1605,
+        "output_tokens": 20
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 24,
+      "seconds": 18.2,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s026",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 12.2,
+      "load_served_mw": 4314.6,
+      "buses_dark": 1,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 2181,
+        "output_tokens": 22
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 26,
+      "seconds": 35.0,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s020",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 164.3,
+      "load_served_mw": 4111.6,
+      "buses_dark": 0,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "open_line",
+            "line": 127
+          },
+          "result": "opened line 127 | {\"applied\":[\"opened line 127\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":164.3}"
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 12312,
+        "output_tokens": 184
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 20,
+      "seconds": 96.2,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 1,
+        "guardrail_rejections": 0,
+        "what_if_calls": 5,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s029",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 218.8,
+      "load_served_mw": 4031.6,
+      "buses_dark": 0,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 2,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [
+        {
+          "tick": 0,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "open_line",
+            "line": 154
+          },
+          "result": "opened line 154 | {\"applied\":[\"opened line 154\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":218.8}"
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "input_tokens": 12545,
+        "output_tokens": 185
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 29,
+      "seconds": 76.5,
+      "stats": {
+        "turns": 8,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 3,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s031",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 94.3,
+      "load_served_mw": 4207.1,
+      "buses_dark": 0,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 4,
+        "input_tokens": 4556,
+        "output_tokens": 66
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 31,
+      "seconds": 51.9,
+      "stats": {
+        "turns": 4,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s025",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 14.3,
+      "load_served_mw": 4439.8,
+      "buses_dark": 1,
+      "lines_tripped": 3,
+      "operator_shed_mw": 0.0,
+      "ticks": 4,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 1,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "open_line",
+            "line": 7
+          },
+          "result": "opened line 7 | {\"applied\":[\"opened line 7\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":14.3}"
+        }
+      ],
+      "usage": {
+        "calls": 10,
+        "input_tokens": 12740,
+        "output_tokens": 196
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 25,
+      "seconds": 111.6,
+      "stats": {
+        "turns": 10,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 3,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s032",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 18.5,
+      "load_served_mw": 4342.3,
+      "buses_dark": 1,
+      "lines_tripped": 2,
+      "operator_shed_mw": 0.0,
+      "ticks": 1,
+      "contained": false,
+      "decision_points": 1,
+      "actions": [],
+      "usage": {
+        "calls": 2,
+        "input_tokens": 2179,
+        "output_tokens": 22
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 32,
+      "seconds": 22.9,
+      "stats": {
+        "turns": 2,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s030",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 189.8,
+      "load_served_mw": 4154.0,
+      "buses_dark": 1,
+      "lines_tripped": 8,
+      "operator_shed_mw": 20.0,
+      "ticks": 5,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 3,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "shed_load",
+            "bus": 41,
+            "mw": 20.0
+          },
+          "result": "shed 20.0 MW at bus 41 | {\"applied\":[\"shed 20.0 MW at bus 41\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":20.0}"
+        }
+      ],
+      "usage": {
+        "calls": 9,
+        "input_tokens": 10134,
+        "output_tokens": 167
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 30,
+      "seconds": 88.3,
+      "stats": {
+        "turns": 9,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 3,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s036",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 71.1,
+      "load_served_mw": 4179.3,
+      "buses_dark": 1,
+      "lines_tripped": 4,
+      "operator_shed_mw": 0.0,
+      "ticks": 7,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 3,
+        "input_tokens": 2654,
+        "output_tokens": 29
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 36,
+      "seconds": 38.3,
+      "stats": {
+        "turns": 3,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 0,
+        "applied": 0
+      }
+    },
+    {
+      "scenario": "s034",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 187.4,
+      "load_served_mw": 4101.2,
+      "buses_dark": 0,
+      "lines_tripped": 5,
+      "operator_shed_mw": 0.0,
+      "ticks": 5,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 4,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "open_line",
+            "line": 61
+          },
+          "result": "opened line 61 | {\"applied\":[\"opened line 61\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":187.4}"
+        }
+      ],
+      "usage": {
+        "calls": 7,
+        "input_tokens": 7987,
+        "output_tokens": 168
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 34,
+      "seconds": 68.2,
+      "stats": {
+        "turns": 7,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s033",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 152.2,
+      "load_served_mw": 4111.1,
+      "buses_dark": 0,
+      "lines_tripped": 5,
+      "operator_shed_mw": 0.0,
+      "ticks": 5,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 4,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "open_line",
+            "line": 61
+          },
+          "result": "opened line 61 | {\"applied\":[\"opened line 61\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":152.2}"
+        }
+      ],
+      "usage": {
+        "calls": 7,
+        "input_tokens": 8039,
+        "output_tokens": 173
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 33,
+      "seconds": 87.4,
+      "stats": {
+        "turns": 7,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s027",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 201.4,
+      "load_served_mw": 4252.7,
+      "buses_dark": 0,
+      "lines_tripped": 2,
+      "operator_shed_mw": 130.0,
+      "ticks": 4,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 1,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "shed_load",
+            "bus": 58,
+            "mw": 100.0
+          },
+          "result": "shed 100.0 MW at bus 58 | {\"applied\":[\"shed 100.0 MW at bus 58\"],\"rejected\":[],\"overloaded_now\":1,\"load_lost_mw\":100.0}"
+        },
+        {
+          "tick": 2,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "shed_load",
+            "bus": 115,
+            "mw": 30.0
+          },
+          "result": "shed 30.0 MW at bus 115 | {\"applied\":[\"shed 30.0 MW at bus 115\"],\"rejected\":[],\"overloaded_now\":1,\"load_lost_mw\":130.0}"
+        }
+      ],
+      "usage": {
+        "calls": 15,
+        "input_tokens": 18605,
+        "output_tokens": 361
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 27,
+      "seconds": 210.2,
+      "stats": {
+        "turns": 15,
+        "unparseable": 0,
+        "invalid_actions": 1,
+        "guardrail_rejections": 0,
+        "what_if_calls": 6,
+        "applied": 2
+      }
+    },
+    {
+      "scenario": "s021",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 161.1,
+      "load_served_mw": 4136.1,
+      "buses_dark": 0,
+      "lines_tripped": 8,
+      "operator_shed_mw": 0.0,
+      "ticks": 3,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 1,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "open_line",
+            "line": 80
+          },
+          "result": "opened line 80 | {\"applied\":[\"opened line 80\"],\"rejected\":[],\"overloaded_now\":3,\"load_lost_mw\":0.0}"
+        }
+      ],
+      "usage": {
+        "calls": 20,
+        "input_tokens": 25568,
+        "output_tokens": 382
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 21,
+      "seconds": 260.8,
+      "stats": {
+        "turns": 20,
+        "unparseable": 0,
+        "invalid_actions": 1,
+        "guardrail_rejections": 0,
+        "what_if_calls": 13,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s037",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 186.0,
+      "load_served_mw": 4068.8,
+      "buses_dark": 0,
+      "lines_tripped": 5,
+      "operator_shed_mw": 0.0,
+      "ticks": 5,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [
+        {
+          "tick": 4,
+          "policy": "agent_no_sensitivity",
+          "action": {
+            "type": "open_line",
+            "line": 61
+          },
+          "result": "opened line 61 | {\"applied\":[\"opened line 61\"],\"rejected\":[],\"overloaded_now\":0,\"load_lost_mw\":186.0}"
+        }
+      ],
+      "usage": {
+        "calls": 7,
+        "input_tokens": 8010,
+        "output_tokens": 144
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 37,
+      "seconds": 63.7,
+      "stats": {
+        "turns": 7,
+        "unparseable": 0,
+        "invalid_actions": 0,
+        "guardrail_rejections": 0,
+        "what_if_calls": 2,
+        "applied": 1
+      }
+    },
+    {
+      "scenario": "s035",
+      "policy": "agent_no_sensitivity",
+      "load_lost_mw": 152.9,
+      "load_served_mw": 4131.5,
+      "buses_dark": 0,
+      "lines_tripped": 7,
+      "operator_shed_mw": 0.0,
+      "ticks": 5,
+      "contained": false,
+      "decision_points": 3,
+      "actions": [],
+      "usage": {
+        "calls": 9,
+        "input_tokens": 11004,
+        "output_tokens": 162
+      },
+      "policy_spec": "agent_no_sensitivity",
+      "seed": 35,
+      "seconds": 150.9,
+      "stats": {
+        "turns": 9,
+        "unparseable": 0,
+        "invalid_actions": 1,
+        "guardrail_rejections": 0,
+        "what_if_calls": 5,
+        "applied": 0
+      }
+    }
+  ]
+}

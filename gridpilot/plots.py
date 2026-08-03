@@ -17,6 +17,7 @@ FIGURES = RESULTS / "figures"
 LABELS = {
     "no_action": "do nothing",
     "greedy_shed": "greedy load shedding",
+    "greedy_checked": "greedy, what-if checked",
     "redispatch_relief": "redispatch heuristic",
     "agent": "LLM agent",
     "agent_no_guardrail": "agent, no what-if guardrail",
@@ -25,6 +26,7 @@ LABELS = {
 COLORS = {
     "no_action": "#8a8f98",
     "greedy_shed": "#d64545",
+    "greedy_checked": "#e0846f",
     "redispatch_relief": "#c8a02a",
     "agent": "#4b7ade",
     "agent_no_guardrail": "#8b5cd6",
@@ -47,7 +49,7 @@ def collect() -> tuple[dict, dict]:
 
 
 def order(specs) -> list[str]:
-    pref = ["no_action", "greedy_shed", "redispatch_relief", "agent",
+    pref = ["no_action", "greedy_shed", "greedy_checked", "redispatch_relief", "agent",
             "agent_no_guardrail", "agent_no_sensitivity"]
     return [s for s in pref if s in specs] + [s for s in specs if s not in pref]
 
@@ -84,9 +86,10 @@ def bars(summaries: dict):
     span = max(abs(min(avoided)), abs(max(avoided))) or 1.0
     axes[1].set_xlim(min(min(avoided), 0) - 0.18 * span, max(max(avoided), 0) + 0.18 * span)
     for i, v in enumerate(avoided):
-        # negative labels sit inside the bar so they never collide with the axis text
-        inside = v < 0
-        axes[1].text(v + (0.02 if v >= 0 else 0.02) * span, i, f"{v:+.0f}%", va="center",
+        # negative labels sit inside the bar so they never collide with the axis
+        # text -- unless the bar is too short to hold them
+        inside = v < 0 and abs(v) > 0.14 * span
+        axes[1].text(v + 0.02 * span, i, f"{v:+.0f}%", va="center",
                      ha="left", fontsize=9,
                      color="#ffffff" if inside else "#222222",
                      fontweight="bold" if inside else "normal")
