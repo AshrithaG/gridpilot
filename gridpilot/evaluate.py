@@ -16,7 +16,7 @@ from pathlib import Path
 import numpy as np
 
 from gridpilot.benchmark import load as load_bench
-from gridpilot.policies import GreedyShed, NoAction, RedispatchRelief
+from gridpilot.policies import GreedyShed, RedispatchRelief
 from gridpilot.runner import run_scenario
 from gridpilot.scenarios import make_scenario
 
