@@ -157,9 +157,10 @@ class CascadeSim:
         return np.where(self.net.line.in_service.values, v, 0.0)
 
     def step(self) -> list[int]:
-        """Advance one tick: relays trip overloaded lines, then re-solve.
-        Returns the indices of lines that tripped."""
-        self.tick += 1
+        """Let protection act: trip lines that have been over limit long enough,
+        then re-solve. Returns the indices of lines that tripped. The caller
+        owns the clock, so an operator can be given a window between a
+        disturbance and the relays responding to it."""
         load = self.loadings()
         over = load > 100.0
         self._over_count = np.where(over, self._over_count + 1, 0)

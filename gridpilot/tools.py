@@ -97,17 +97,39 @@ TOOL_SCHEMAS = [
 ]
 
 
+ACTION_EXAMPLES = {
+    "shed_load": '{"type":"shed_load","bus":42,"mw":25.0}',
+    "redispatch": '{"type":"redispatch","gen":12,"mw":180.0}',
+    "open_line": '{"type":"open_line","line":57}',
+    "close_line": '{"type":"close_line","line":57}',
+}
+SHAPE_HELP = "valid actions: " + " | ".join(ACTION_EXAMPLES.values())
+
+
 def validate(action: dict) -> dict:
-    """Reject malformed or forbidden actions before they touch the grid."""
+    """Reject malformed or forbidden actions before they touch the grid.
+
+    Error messages quote the correct shape, because a caller that has to guess
+    the schema burns its action window doing it -- and in this simulation the
+    window is the difference between relieving a line and losing it.
+    """
     if not isinstance(action, dict):
-        raise ToolError(f"action must be an object, got {type(action).__name__}")
+        raise ToolError(f"action must be an object, got {type(action).__name__}. {SHAPE_HELP}")
     kind = action.get("type")
+    if kind is None:
+        got = ", ".join(sorted(action)) or "nothing"
+        raise ToolError(
+            f"action needs a 'type' field; you supplied {got}. {SHAPE_HELP}"
+        )
     if kind == "shed_load":
         bus, mw = action.get("bus"), action.get("mw")
-        if not isinstance(bus, int):
-            raise ToolError("shed_load needs an integer 'bus'")
-        if not isinstance(mw, (int, float)) or mw <= 0:
-            raise ToolError("shed_load needs a positive 'mw'")
+        if not isinstance(bus, int) or isinstance(bus, bool):
+            raise ToolError(f"shed_load needs an integer 'bus'. {ACTION_EXAMPLES['shed_load']}")
+        if not isinstance(mw, (int, float)) or isinstance(mw, bool) or mw <= 0:
+            raise ToolError(
+                f"shed_load needs a positive 'mw' (the amount to curtail). "
+                f"{ACTION_EXAMPLES['shed_load']}"
+            )
         if bus in PROTECTED_BUSES:
             raise ToolError(f"bus {bus} is protected (critical load) and cannot be shed")
         if mw > MAX_SHED_PER_ACTION_MW:
@@ -117,19 +139,23 @@ def validate(action: dict) -> dict:
         return {"type": "shed_load", "bus": int(bus), "mw": float(mw)}
     if kind == "redispatch":
         gen, mw = action.get("gen"), action.get("mw")
-        if not isinstance(gen, int):
-            raise ToolError("redispatch needs an integer 'gen'")
-        if not isinstance(mw, (int, float)) or mw < 0:
-            raise ToolError("redispatch needs a non-negative 'mw'")
+        if not isinstance(gen, int) or isinstance(gen, bool):
+            raise ToolError(f"redispatch needs an integer 'gen'. {ACTION_EXAMPLES['redispatch']}")
+        if not isinstance(mw, (int, float)) or isinstance(mw, bool) or mw < 0:
+            extra = ""
+            if "new_mw" in action or "setpoint" in action or "target_mw" in action:
+                extra = " The field is called 'mw', not 'new_mw'/'setpoint'/'target_mw'."
+            raise ToolError(
+                f"redispatch needs 'mw': the generator's new absolute setpoint in MW, "
+                f"not a delta.{extra} {ACTION_EXAMPLES['redispatch']}"
+            )
         return {"type": "redispatch", "gen": int(gen), "mw": float(mw)}
     if kind in ("open_line", "close_line"):
         line = action.get("line")
-        if not isinstance(line, int):
-            raise ToolError(f"{kind} needs an integer 'line'")
+        if not isinstance(line, int) or isinstance(line, bool):
+            raise ToolError(f"{kind} needs an integer 'line'. {ACTION_EXAMPLES[kind]}")
         return {"type": kind, "line": int(line)}
-    raise ToolError(
-        f"unknown action type {kind!r}; expected shed_load, redispatch, open_line or close_line"
-    )
+    raise ToolError(f"unknown action type {kind!r}. {SHAPE_HELP}")
 
 
 def apply_one(sim: CascadeSim, action: dict) -> str:
@@ -172,11 +198,21 @@ def grid_state(sim: CascadeSim, max_lines: int = 14) -> dict:
     island_info = []
     for isl in sorted(islands, key=len, reverse=True)[:4]:
         loads = net.load[net.load.in_service & net.load.bus.isin(isl)]
-        gens = net.gen[net.gen.in_service & net.gen.bus.isin(isl)]
+        gen_idx = net.gen.index[net.gen.in_service & net.gen.bus.isin(isl)]
+        has_slack = bool(len(net.ext_grid[net.ext_grid.in_service
+                                         & net.ext_grid.bus.isin(isl)]))
+        capability = float(sim._gen_capability(gen_idx).sum()) if len(gen_idx) else 0.0
+        if has_slack:
+            capability += float(net.get("_ext_grid_cap_mw", 0.0))
+        load_mw = float(loads.p_mw.sum())
         island_info.append({
             "buses": len(isl),
-            "load_mw": round(float(loads.p_mw.sum()), 1),
-            "generation_mw": round(float(gens.p_mw.sum()), 1),
+            "load_mw": round(load_mw, 1),
+            "generation_mw": round(float(net.gen.loc[gen_idx].p_mw.sum()), 1),
+            "max_deliverable_mw": round(capability, 1),
+            # positive means this island cannot serve its own load and will shed
+            # automatically on under-frequency
+            "deficit_mw": round(max(load_mw - capability, 0.0), 1),
         })
 
     # biggest sheddable loads, so the operator does not have to guess bus numbers
