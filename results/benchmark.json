@@ -1,0 +1,932 @@
+{
+  "damaging": [
+    {
+      "seed": 0,
+      "id": "s000",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 82 trips, then line 6 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          82
+        ],
+        "3": [
+          6
+        ]
+      },
+      "no_action_load_lost_mw": 14.3,
+      "no_action_buses_dark": 1,
+      "no_action_lines_tripped": 6
+    },
+    {
+      "seed": 1,
+      "id": "s001",
+      "kind": "substation",
+      "stress": 1.017,
+      "description": "busbar fault at substation 112: lines 165 and 166 trip simultaneously",
+      "schedule": {
+        "0": [
+          165,
+          166
+        ]
+      },
+      "no_action_load_lost_mw": 6.1,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 3,
+      "id": "s003",
+      "kind": "substation",
+      "stress": 1.018,
+      "description": "busbar fault at substation 17: lines 22 and 21 trip simultaneously",
+      "schedule": {
+        "0": [
+          22,
+          21
+        ]
+      },
+      "no_action_load_lost_mw": 61.1,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 4,
+      "id": "s004",
+      "kind": "substation",
+      "stress": 1.009,
+      "description": "busbar fault at substation 100: lines 149 and 147 trip simultaneously",
+      "schedule": {
+        "0": [
+          149,
+          147
+        ]
+      },
+      "no_action_load_lost_mw": 22.2,
+      "no_action_buses_dark": 1,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 5,
+      "id": "s005",
+      "kind": "corridor",
+      "stress": 1.008,
+      "description": "corridor failure on lines [150, 151, 154]: completing the cut splits the system into islands of about 108 and 10 buses",
+      "schedule": {
+        "0": [
+          150,
+          151
+        ],
+        "2": [
+          154
+        ]
+      },
+      "no_action_load_lost_mw": 220.1,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 7,
+      "id": "s007",
+      "kind": "storm",
+      "stress": 1.028,
+      "description": "storm front near bus 52: lines [68, 67, 66, 60] trip over 6 ticks",
+      "schedule": {
+        "0": [
+          68
+        ],
+        "2": [
+          67
+        ],
+        "4": [
+          66
+        ],
+        "6": [
+          60
+        ]
+      },
+      "no_action_load_lost_mw": 18.5,
+      "no_action_buses_dark": 1,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 8,
+      "id": "s008",
+      "kind": "substation",
+      "stress": 1.011,
+      "description": "busbar fault at substation 50: lines 66 and 78 trip simultaneously",
+      "schedule": {
+        "0": [
+          66,
+          78
+        ]
+      },
+      "no_action_load_lost_mw": 58.6,
+      "no_action_buses_dark": 3,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 9,
+      "id": "s009",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 90 trips, then line 163 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          90
+        ],
+        "3": [
+          163
+        ]
+      },
+      "no_action_load_lost_mw": 440.7,
+      "no_action_buses_dark": 2,
+      "no_action_lines_tripped": 12
+    },
+    {
+      "seed": 11,
+      "id": "s011",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 138 trips, then line 80 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          138
+        ],
+        "3": [
+          80
+        ]
+      },
+      "no_action_load_lost_mw": 14.3,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 3
+    },
+    {
+      "seed": 12,
+      "id": "s012",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 148 trips, then line 79 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          148
+        ],
+        "3": [
+          79
+        ]
+      },
+      "no_action_load_lost_mw": 14.3,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 3
+    },
+    {
+      "seed": 13,
+      "id": "s013",
+      "kind": "storm",
+      "stress": 1.009,
+      "description": "storm front near bus 95: lines [135, 113, 108, 172] trip over 6 ticks",
+      "schedule": {
+        "0": [
+          135
+        ],
+        "2": [
+          113
+        ],
+        "4": [
+          108
+        ],
+        "6": [
+          172
+        ]
+      },
+      "no_action_load_lost_mw": 68.6,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 5
+    },
+    {
+      "seed": 16,
+      "id": "s016",
+      "kind": "storm",
+      "stress": 1.014,
+      "description": "storm front near bus 39: lines [48, 43, 42, 45] trip over 6 ticks",
+      "schedule": {
+        "0": [
+          48
+        ],
+        "2": [
+          43
+        ],
+        "4": [
+          42
+        ],
+        "6": [
+          45
+        ]
+      },
+      "no_action_load_lost_mw": 92.3,
+      "no_action_buses_dark": 2,
+      "no_action_lines_tripped": 6
+    },
+    {
+      "seed": 17,
+      "id": "s017",
+      "kind": "corridor",
+      "stress": 1.012,
+      "description": "corridor failure on lines [150, 151, 154]: completing the cut splits the system into islands of about 108 and 10 buses",
+      "schedule": {
+        "0": [
+          150,
+          151
+        ],
+        "2": [
+          154
+        ]
+      },
+      "no_action_load_lost_mw": 221.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 19,
+      "id": "s019",
+      "kind": "substation",
+      "stress": 1.024,
+      "description": "busbar fault at substation 70: lines 100 and 103 trip simultaneously",
+      "schedule": {
+        "0": [
+          100,
+          103
+        ]
+      },
+      "no_action_load_lost_mw": 6.1,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 20,
+      "id": "s020",
+      "kind": "substation",
+      "stress": 1.008,
+      "description": "busbar fault at substation 89: lines 125 and 126 trip simultaneously",
+      "schedule": {
+        "0": [
+          125,
+          126
+        ]
+      },
+      "no_action_load_lost_mw": 174.4,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 21,
+      "id": "s021",
+      "kind": "substation",
+      "stress": 1.013,
+      "description": "busbar fault at substation 55: lines 81 and 75 trip simultaneously",
+      "schedule": {
+        "0": [
+          81,
+          75
+        ]
+      },
+      "no_action_load_lost_mw": 161.1,
+      "no_action_buses_dark": 1,
+      "no_action_lines_tripped": 10
+    },
+    {
+      "seed": 23,
+      "id": "s023",
+      "kind": "storm",
+      "stress": 1.027,
+      "description": "storm front near bus 11: lines [10, 8, 2, 3] trip over 6 ticks",
+      "schedule": {
+        "0": [
+          10
+        ],
+        "2": [
+          8
+        ],
+        "4": [
+          2
+        ],
+        "6": [
+          3
+        ]
+      },
+      "no_action_load_lost_mw": 40.1,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 24,
+      "id": "s024",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 163 trips, then line 164 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          163
+        ],
+        "3": [
+          164
+        ]
+      },
+      "no_action_load_lost_mw": 71.4,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 25,
+      "id": "s025",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 138 trips, then line 6 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          138
+        ],
+        "3": [
+          6
+        ]
+      },
+      "no_action_load_lost_mw": 14.3,
+      "no_action_buses_dark": 1,
+      "no_action_lines_tripped": 3
+    },
+    {
+      "seed": 26,
+      "id": "s026",
+      "kind": "substation",
+      "stress": 1.02,
+      "description": "busbar fault at substation 57: lines 77 and 78 trip simultaneously",
+      "schedule": {
+        "0": [
+          77,
+          78
+        ]
+      },
+      "no_action_load_lost_mw": 12.2,
+      "no_action_buses_dark": 1,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 27,
+      "id": "s027",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 90 trips, then line 164 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          90
+        ],
+        "3": [
+          164
+        ]
+      },
+      "no_action_load_lost_mw": 512.1,
+      "no_action_buses_dark": 2,
+      "no_action_lines_tripped": 12
+    },
+    {
+      "seed": 29,
+      "id": "s029",
+      "kind": "corridor",
+      "stress": 1.002,
+      "description": "corridor failure on lines [150, 151, 154]: completing the cut splits the system into islands of about 108 and 10 buses",
+      "schedule": {
+        "0": [
+          150,
+          151
+        ],
+        "2": [
+          154
+        ]
+      },
+      "no_action_load_lost_mw": 218.8,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 30,
+      "id": "s030",
+      "kind": "corridor",
+      "stress": 1.024,
+      "description": "corridor failure on lines [28, 56, 62, 89]: completing the cut splits the system into islands of about 71 and 47 buses",
+      "schedule": {
+        "0": [
+          28,
+          56
+        ],
+        "2": [
+          62
+        ],
+        "4": [
+          89
+        ]
+      },
+      "no_action_load_lost_mw": 189.8,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 5
+    },
+    {
+      "seed": 31,
+      "id": "s031",
+      "kind": "substation",
+      "stress": 1.014,
+      "description": "busbar fault at substation 105: lines 156 and 154 trip simultaneously",
+      "schedule": {
+        "0": [
+          156,
+          154
+        ]
+      },
+      "no_action_load_lost_mw": 94.3,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 3
+    },
+    {
+      "seed": 32,
+      "id": "s032",
+      "kind": "substation",
+      "stress": 1.028,
+      "description": "busbar fault at substation 19: lines 25 and 23 trip simultaneously",
+      "schedule": {
+        "0": [
+          25,
+          23
+        ]
+      },
+      "no_action_load_lost_mw": 18.5,
+      "no_action_buses_dark": 1,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 33,
+      "id": "s033",
+      "kind": "corridor",
+      "stress": 1.005,
+      "description": "corridor failure on lines [28, 55, 62, 89]: completing the cut splits the system into islands of about 73 and 45 buses",
+      "schedule": {
+        "0": [
+          28,
+          55
+        ],
+        "2": [
+          62
+        ],
+        "4": [
+          89
+        ]
+      },
+      "no_action_load_lost_mw": 152.2,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 7
+    },
+    {
+      "seed": 34,
+      "id": "s034",
+      "kind": "corridor",
+      "stress": 1.011,
+      "description": "corridor failure on lines [28, 56, 62, 89]: completing the cut splits the system into islands of about 71 and 47 buses",
+      "schedule": {
+        "0": [
+          28,
+          56
+        ],
+        "2": [
+          62
+        ],
+        "4": [
+          89
+        ]
+      },
+      "no_action_load_lost_mw": 187.4,
+      "no_action_buses_dark": 1,
+      "no_action_lines_tripped": 8
+    },
+    {
+      "seed": 35,
+      "id": "s035",
+      "kind": "corridor",
+      "stress": 1.01,
+      "description": "corridor failure on lines [28, 55, 62, 89]: completing the cut splits the system into islands of about 73 and 45 buses",
+      "schedule": {
+        "0": [
+          28,
+          55
+        ],
+        "2": [
+          62
+        ],
+        "4": [
+          89
+        ]
+      },
+      "no_action_load_lost_mw": 152.9,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 7
+    },
+    {
+      "seed": 36,
+      "id": "s036",
+      "kind": "storm",
+      "stress": 1.002,
+      "description": "storm front near bus 2: lines [1, 0, 11, 10] trip over 6 ticks",
+      "schedule": {
+        "0": [
+          1
+        ],
+        "2": [
+          0
+        ],
+        "4": [
+          11
+        ],
+        "6": [
+          10
+        ]
+      },
+      "no_action_load_lost_mw": 71.1,
+      "no_action_buses_dark": 1,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 37,
+      "id": "s037",
+      "kind": "corridor",
+      "stress": 1.003,
+      "description": "corridor failure on lines [28, 56, 62, 89]: completing the cut splits the system into islands of about 71 and 47 buses",
+      "schedule": {
+        "0": [
+          28,
+          56
+        ],
+        "2": [
+          62
+        ],
+        "4": [
+          89
+        ]
+      },
+      "no_action_load_lost_mw": 186.0,
+      "no_action_buses_dark": 1,
+      "no_action_lines_tripped": 8
+    }
+  ],
+  "benign": [
+    {
+      "seed": 2,
+      "id": "s002",
+      "kind": "substation",
+      "stress": 1.003,
+      "description": "busbar fault at substation 48: lines 62 and 92 trip simultaneously",
+      "schedule": {
+        "0": [
+          62,
+          92
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 6,
+      "id": "s006",
+      "kind": "corridor",
+      "stress": 1.025,
+      "description": "corridor failure on lines [117, 129, 130]: completing the cut splits the system into islands of about 109 and 9 buses",
+      "schedule": {
+        "0": [
+          117,
+          129
+        ],
+        "2": [
+          130
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 10,
+      "id": "s010",
+      "kind": "corridor",
+      "stress": 1.001,
+      "description": "corridor failure on lines [117, 129, 130]: completing the cut splits the system into islands of about 109 and 9 buses",
+      "schedule": {
+        "0": [
+          117,
+          129
+        ],
+        "2": [
+          130
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 14,
+      "id": "s014",
+      "kind": "substation",
+      "stress": 1.018,
+      "description": "busbar fault at substation 104: lines 158 and 155 trip simultaneously",
+      "schedule": {
+        "0": [
+          158,
+          155
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 15,
+      "id": "s015",
+      "kind": "substation",
+      "stress": 1.0,
+      "description": "busbar fault at substation 102: lines 150 and 161 trip simultaneously",
+      "schedule": {
+        "0": [
+          150,
+          161
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 18,
+      "id": "s018",
+      "kind": "substation",
+      "stress": 1.004,
+      "description": "busbar fault at substation 59: lines 85 and 83 trip simultaneously",
+      "schedule": {
+        "0": [
+          85,
+          83
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 22,
+      "id": "s022",
+      "kind": "substation",
+      "stress": 1.007,
+      "description": "busbar fault at substation 84: lines 122 and 120 trip simultaneously",
+      "schedule": {
+        "0": [
+          122,
+          120
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 28,
+      "id": "s028",
+      "kind": "substation",
+      "stress": 1.022,
+      "description": "busbar fault at substation 74: lines 171 and 106 trip simultaneously",
+      "schedule": {
+        "0": [
+          171,
+          106
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 41,
+      "id": "s041",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 163 trips, then line 82 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          163
+        ],
+        "3": [
+          82
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 46,
+      "id": "s046",
+      "kind": "substation",
+      "stress": 1.012,
+      "description": "busbar fault at substation 81: lines 136 and 116 trip simultaneously",
+      "schedule": {
+        "0": [
+          136,
+          116
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 47,
+      "id": "s047",
+      "kind": "storm",
+      "stress": 1.002,
+      "description": "storm front near bus 75: lines [108, 109, 96, 58] trip over 6 ticks",
+      "schedule": {
+        "0": [
+          108
+        ],
+        "2": [
+          109
+        ],
+        "4": [
+          96
+        ],
+        "6": [
+          58
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 66,
+      "id": "s066",
+      "kind": "substation",
+      "stress": 1.009,
+      "description": "busbar fault at substation 33: lines 55 and 45 trip simultaneously",
+      "schedule": {
+        "0": [
+          55,
+          45
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 68,
+      "id": "s068",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 81 trips, then line 148 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          81
+        ],
+        "3": [
+          148
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 69,
+      "id": "s069",
+      "kind": "substation",
+      "stress": 1.003,
+      "description": "busbar fault at substation 22: lines 27 and 29 trip simultaneously",
+      "schedule": {
+        "0": [
+          27,
+          29
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 76,
+      "id": "s076",
+      "kind": "storm",
+      "stress": 1.014,
+      "description": "storm front near bus 51: lines [67, 66, 60, 58] trip over 6 ticks",
+      "schedule": {
+        "0": [
+          67
+        ],
+        "2": [
+          66
+        ],
+        "4": [
+          60
+        ],
+        "6": [
+          58
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 4
+    },
+    {
+      "seed": 79,
+      "id": "s079",
+      "kind": "substation",
+      "stress": 1.013,
+      "description": "busbar fault at substation 82: lines 117 and 119 trip simultaneously",
+      "schedule": {
+        "0": [
+          117,
+          119
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 91,
+      "id": "s091",
+      "kind": "substation",
+      "stress": 1.018,
+      "description": "busbar fault at substation 95: lines 136 and 143 trip simultaneously",
+      "schedule": {
+        "0": [
+          136,
+          143
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 93,
+      "id": "s093",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 81 trips, then line 88 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          81
+        ],
+        "3": [
+          88
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 99,
+      "id": "s099",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 3 trips, then line 163 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          3
+        ],
+        "3": [
+          163
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    },
+    {
+      "seed": 103,
+      "id": "s103",
+      "kind": "peak_n1",
+      "stress": 1.05,
+      "description": "peak demand (105% of nominal): line 81 trips, then line 138 on another loaded corridor 3 ticks later",
+      "schedule": {
+        "0": [
+          81
+        ],
+        "3": [
+          138
+        ]
+      },
+      "no_action_load_lost_mw": 0.0,
+      "no_action_buses_dark": 0,
+      "no_action_lines_tripped": 2
+    }
+  ],
+  "note": "damaging = no-action baseline loses >1 MW of load"
+}
