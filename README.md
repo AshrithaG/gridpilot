@@ -232,14 +232,6 @@ frontend/         SVG grid map, no build step
 tests/            physics invariants, guardrail enforcement, tool validation
 ```
 
-## References
-
-- [pandapower](https://www.pandapower.org/) and the IEEE 118-bus test case
-- Dobson et al., [Complex systems analysis of series of blackouts](https://doi.org/10.1063/1.2737822)
- , cascading failure modelling and the role of loading margin
-- [NERC disturbance reports](https://www.nerc.com/pa/rrm/ea/Pages/default.aspx)
-  for how real cascades actually unfold
-
 ## Running it publicly
 
 The simulation, manual line tripping and the redispatch heuristic are pure
@@ -258,3 +250,11 @@ On Render, `render.yaml` deploys it from the Dockerfile on the free tier. Set
 session and run counts. Those counts live in a file, so they reset when a free
 tier restarts the container; they are a demo counter, not analytics.
 
+
+## References
+
+- [pandapower](https://www.pandapower.org/) and the IEEE 118-bus test case
+- Dobson et al., [Complex systems analysis of series of blackouts](https://doi.org/10.1063/1.2737822)
+ , cascading failure modelling and the role of loading margin
+- [NERC disturbance reports](https://www.nerc.com/pa/rrm/ea/Pages/default.aspx)
+  for how real cascades actually unfold
