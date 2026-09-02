@@ -9,6 +9,8 @@ from __future__ import annotations
 
 import asyncio
 import json
+import os
+import threading
 from pathlib import Path
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
@@ -24,6 +26,41 @@ from gridpilot.tools import PROTECTED_BUSES, grid_state, what_if
 STATIC = Path(__file__).parent.parent / "frontend"
 
 app = FastAPI(title="GridPilot")
+
+# ---------------------------------------------------------------- public demo
+# The heuristic and manual policies are pure simulation and cost nothing to run,
+# so an anonymous visitor gets a working demo. Only the LLM agent needs a key,
+# and when none is configured it says so instead of failing with a stack trace.
+AGENT_ENABLED = bool(os.environ.get("ANTHROPIC_API_KEY"))
+
+# A visit and run count, kept in a file so it survives process restarts. Free
+# tiers usually have ephemeral disks, so this resets on redeploy; it is a demo
+# counter, not analytics.
+_COUNTS_PATH = Path(os.environ.get("GRIDPILOT_COUNTS", "/tmp/gridpilot_counts.json"))
+_counts_lock = threading.Lock()
+
+
+def _bump(key: str) -> dict:
+    with _counts_lock:
+        try:
+            counts = json.loads(_COUNTS_PATH.read_text())
+        except (OSError, json.JSONDecodeError):
+            counts = {}
+        counts[key] = int(counts.get(key, 0)) + 1
+        try:
+            tmp = _COUNTS_PATH.with_suffix(".tmp")
+            tmp.write_text(json.dumps(counts))
+            tmp.replace(_COUNTS_PATH)
+        except OSError:
+            pass  # a demo counter is never worth failing a request over
+        return counts
+
+
+def _read_counts() -> dict:
+    try:
+        return json.loads(_COUNTS_PATH.read_text())
+    except (OSError, json.JSONDecodeError):
+        return {}
 
 
 def topology(sim: CascadeSim) -> dict:
@@ -138,6 +175,7 @@ class Session:
 @app.websocket("/ws")
 async def ws_endpoint(ws: WebSocket):
     await ws.accept()
+    _bump("sessions")
     sess = Session(ws)
     await ws.send_text(json.dumps({"type": "topology", "payload": topology(sess.sim)}))
     await sess.send_state("ready")
@@ -174,8 +212,18 @@ async def ws_endpoint(ws: WebSocket):
                 sess.reset()
                 await sess.send_state("grid restored")
             elif cmd == "agent":
-                await sess.run_agent(msg.get("model", "claude-haiku-4-5-20251001"))
+                if not AGENT_ENABLED:
+                    sess.note("agent", "the LLM operator is disabled on this public "
+                                       "demo (no API key configured). The redispatch "
+                                       "heuristic and manual line tripping both work.")
+                    await ws.send_text(json.dumps({"type": "agent_status",
+                                                   "payload": {"state": "disabled"}}))
+                    await sess.send_state()
+                else:
+                    _bump("agent_runs")
+                    await sess.run_agent(msg.get("model", "claude-haiku-4-5-20251001"))
             elif cmd == "heuristic":
+                _bump("heuristic_runs")
                 await sess.run_heuristic()
             elif cmd == "state":
                 await sess.send_state()
@@ -200,6 +248,20 @@ def list_scenarios():
 def one_shot_state():
     sim = CascadeSim(load_case())
     return {"topology": topology(sim), "state": grid_state(sim)}
+
+
+@app.get("/api/config")
+def config():
+    """What this deployment can actually do, so the UI can say so up front."""
+    return {"agent_enabled": AGENT_ENABLED}
+
+
+@app.get("/api/stats")
+def stats():
+    c = _read_counts()
+    return {"sessions": c.get("sessions", 0),
+            "heuristic_runs": c.get("heuristic_runs", 0),
+            "agent_runs": c.get("agent_runs", 0)}
 
 
 if STATIC.exists():

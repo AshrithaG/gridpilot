@@ -19,7 +19,7 @@ setpoint changes, no customers dropped, nothing overloaded. Regenerate it with
 
 ## Does the agent actually help?
 
-Not obviously — which is why the benchmark exists. Fifty seeded incidents, each
+Not obviously, which is why the benchmark exists. Fifty seeded incidents, each
 replayed under every operator policy and scored on megawatts of load lost.
 Shedding counts against you: a customer without power does not care whether an
 operator or a relay dropped them.
@@ -45,15 +45,15 @@ entire margin over the heuristic:
 
 Acting blind hurts more than acting unchecked. An agent that cannot ask which
 generators affect which line spends its limited reserve on units that barely
-move the flow, and avoids only 13% of the damage — worse than the same agent
+move the flow, and avoids only 13% of the damage, worse than the same agent
 allowed to commit unsimulated plans. Both ablations ran on the same 30 damaging
 incidents; the sensitivity ablation skipped the benign set, so its benign-damage
 figure is not comparable and is omitted.
 
 Four findings worth more than the headline number:
 
-**An eager operator is worse than no operator.** Greedy load shedding — the
-obvious rule, shed near whatever is overloaded — loses 65% *more* load than
+**An eager operator is worse than no operator.** Greedy load shedding, the
+obvious rule, shed near whatever is overloaded, loses 65% *more* load than
 walking away, makes 11 of 30 incidents worse, and damages 2 incidents the grid
 would have absorbed on its own. Shedding to relieve a line spends exactly the
 thing you are trying to protect.
@@ -66,7 +66,7 @@ reporting the mean.
 
 **Schema friction costs load.** In early runs the agent burned three of its
 eight turns per incident guessing field names (`new_mw`, `setpoint`,
-`action_type`) before landing a valid call — and in this simulation turns are
+`action_type`) before landing a valid call, and in this simulation turns are
 the window before a relay trips. Rewriting the validation errors to quote the
 correct shape took invalid actions from routine to 3 across 264 turns, with no
 change to the model or the prompt. Error message text is a latency budget.
@@ -85,7 +85,7 @@ Every agent row is a single pass of `claude-haiku-4-5` at default temperature,
 about 74 seconds and 7k input tokens per incident (the sensitivity tool costs a
 DC solve per candidate generator, not tokens). One pass per incident is enough to
 separate the ablations, which differ by 10-20 MW, but it is not enough to call a
-5 MW gap over the redispatch heuristic significant — hence the win/tie/loss
+5 MW gap over the redispatch heuristic significant, hence the win/tie/loss
 count, which is the honest version of that comparison. Repeated runs per
 incident, and a stronger model, are the obvious next step.
 
@@ -95,13 +95,13 @@ Four levers, all as tool calls: `redispatch` a generator, `shed_load` at a
 bus, and `open_line` / `close_line`. Plus two read-only tools that make the
 difference between guessing and deciding:
 
-- **`relief_options(line)`** — which generators relieve this line, and by how
+- **`relief_options(line)`**, which generators relieve this line, and by how
   much per MW. Computed by finite difference: nudge each candidate generator on
   a cloned grid, re-solve, read the change. This is what PTDF sensitivity
   factors give a real control room. (Pulling the PTDF matrix out of pandapower
   directly would be faster, but its branch ordering does not line up with the
   line table, and a silent misalignment produces confidently wrong advice.)
-- **`what_if(actions)`** — apply a plan to a cloned grid, let the cascade play
+- **`what_if(actions)`**, apply a plan to a cloned grid, let the cascade play
   out, and report what *would* happen versus doing nothing. Nothing is
   committed.
 
@@ -111,7 +111,7 @@ The prompt tells the agent it *can* simulate before acting. Whether it does is
 not left to good intentions:
 
 - every action is schema-validated, and the error quotes the correct shape
-- protected buses (hospitals, water treatment) are unsheddable — enforced in
+- protected buses (hospitals, water treatment) are unsheddable, enforced in
   `validate()`, not requested in the prompt
 - at most 4 actions per tick, at most 120 MW shed per action
 - with `require_what_if` on, a plan is simulated before it is committed and
@@ -126,7 +126,7 @@ check:
 | greedy shedding | 194 | -65% | 11 / 30 | 2 |
 | greedy shedding, checked | 120 | -3% | 1 / 30 | 0 |
 
-The guardrail cannot make a bad policy good — checked greedy still never beats
+The guardrail cannot make a bad policy good, checked greedy still never beats
 walking away. It can stop it from being actively harmful, and it does so
 without changing a line of the policy's logic.
 
@@ -142,8 +142,8 @@ trip is cleanup. An earlier version of the runner consulted the operator after
 protection and the agent looked useless, because by the time it was asked, every
 decision had already been made for it.
 
-The operator is called at *decision points* — a fresh disturbance, or a live
-overload — not every tick. Some incidents (a corridor cut splitting the system)
+The operator is called at *decision points*, a fresh disturbance, or a live
+overload, not every tick. Some incidents (a corridor cut splitting the system)
 destroy load through islanding without ever overloading a line, so a policy that
 only reacts to overloads would never be consulted at all, and would score
 deceptively well.
@@ -159,7 +159,7 @@ Choices that matter for whether the results mean anything:
   contingency, plus 5%. The base case then sits at 48% median loading and *no
   single line trip overloads anything* (tested). Difficulty comes from
   correlated faults, not from starting out overloaded. Sizing limits from
-  base-case flows instead — the obvious shortcut — makes half of all single
+  base-case flows instead, the obvious shortcut, makes half of all single
   contingencies unsafe and the grid absurdly fragile.
 - **Generators contribute spinning reserve, not nameplate.** On a cascade
   timescale a unit can move about 10% above its current output. Letting islands
@@ -186,7 +186,7 @@ Random line pairs almost never interact, so scenarios are correlated faults:
 | `peak_n1` | 105% of nominal demand, then two trips on heavily loaded corridors |
 
 Fifty are screened into a fixed benchmark: 30 where doing nothing loses load,
-and 20 the grid absorbs unaided. The benign 20 are not filler — they are the
+and 20 the grid absorbs unaided. The benign 20 are not filler, they are the
 trap for the failure mode that killed the greedy heuristic, and the reason
 "benign incidents damaged" is a column in the results table.
 
@@ -236,6 +236,25 @@ tests/            physics invariants, guardrail enforcement, tool validation
 
 - [pandapower](https://www.pandapower.org/) and the IEEE 118-bus test case
 - Dobson et al., [Complex systems analysis of series of blackouts](https://doi.org/10.1063/1.2737822)
-  — cascading failure modelling and the role of loading margin
+ , cascading failure modelling and the role of loading margin
 - [NERC disturbance reports](https://www.nerc.com/pa/rrm/ea/Pages/default.aspx)
   for how real cascades actually unfold
+
+## Running it publicly
+
+The simulation, manual line tripping and the redispatch heuristic are pure
+physics and cost nothing to run, so a visitor gets a working demo with no
+account and no key. Only the LLM operator needs `ANTHROPIC_API_KEY`; without it
+the agent button reports that it is disabled rather than failing.
+
+```bash
+docker build -t gridpilot . && docker run -p 8000:8000 gridpilot
+```
+
+On Render, `render.yaml` deploys it from the Dockerfile on the free tier. Set
+`ANTHROPIC_API_KEY` in the dashboard only if you want the agent live.
+
+`/api/config` reports whether the agent is enabled, and `/api/stats` returns
+session and run counts. Those counts live in a file, so they reset when a free
+tier restarts the container; they are a demo counter, not analytics.
+

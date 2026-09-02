@@ -1,0 +1,17 @@
+# One-click deploy on Render's free tier.
+#
+# The LLM operator stays off unless ANTHROPIC_API_KEY is set in the dashboard,
+# so an anonymous visitor still gets manual line tripping, cascade propagation
+# and the redispatch heuristic, none of which cost anything to run.
+services:
+  - type: web
+    name: gridpilot
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/state
+    envVars:
+      - key: GRIDPILOT_COUNTS
+        value: /tmp/gridpilot_counts.json
+      - key: ANTHROPIC_API_KEY
+        sync: false   # set in the dashboard only if you want the agent live
