@@ -192,9 +192,11 @@ trap for the failure mode that killed the greedy heuristic, and the reason
 
 ## Running it
 
-Needs [uv](https://docs.astral.sh/uv/). The agent uses your local `claude`
-CLI by default, so there is no API key to configure; set `ANTHROPIC_API_KEY`
-and it uses the SDK instead.
+Needs [uv](https://docs.astral.sh/uv/). The evaluation scripts use your local
+`claude` CLI when `ANTHROPIC_API_KEY` is unset, so batch runs need no key; set
+the key and they use the SDK instead. The web demo is stricter: its agent is
+enabled only when `ANTHROPIC_API_KEY` is set, and without it the physics, manual
+line tripping and the redispatch heuristic still work.
 
 ```bash
 uv sync
@@ -254,7 +256,7 @@ tier restarts the container; they are a demo counter, not analytics.
 ## References
 
 - [pandapower](https://www.pandapower.org/) and the IEEE 118-bus test case
-- Dobson et al., [Complex systems analysis of series of blackouts](https://doi.org/10.1063/1.2737822)
- , cascading failure modelling and the role of loading margin
+- Dobson et al., [Complex systems analysis of series of blackouts](https://doi.org/10.1063/1.2737822):
+  cascading failure modelling and the role of loading margin
 - [NERC disturbance reports](https://www.nerc.com/pa/rrm/ea/Pages/default.aspx)
   for how real cascades actually unfold
