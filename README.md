@@ -260,3 +260,7 @@ tier restarts the container; they are a demo counter, not analytics.
   cascading failure modelling and the role of loading margin
 - [NERC disturbance reports](https://www.nerc.com/pa/rrm/ea/Pages/default.aspx)
   for how real cascades actually unfold
+
+## License
+
+Code released under the MIT License (see `LICENSE`).
