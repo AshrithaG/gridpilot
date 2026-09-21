@@ -7,3 +7,8 @@ __pycache__/
 node_modules/
 frontend/dist/
 results/runs/
+deploy/.terraform/
+deploy/*.tfstate*
+deploy/*-config
+deploy/plan.out
+deploy/plan.json

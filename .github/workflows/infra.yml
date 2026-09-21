@@ -1,0 +1,51 @@
+name: infra
+on:
+  push:
+    paths: ["deploy/**", "Dockerfile", ".github/workflows/infra.yml"]
+  pull_request:
+    paths: ["deploy/**", "Dockerfile", ".github/workflows/infra.yml"]
+  schedule:
+    - cron: "0 6 * * 1" # weekly, so a provider release that breaks the drift check is noticed
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: deploy } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      - run: terraform fmt -check -recursive
+      - run: terraform init -backend=false -input=false
+      - run: terraform validate
+
+  drift:
+    # The full cycle on a throwaway cluster: state in MinIO, apply, policy on the
+    # plan, then change the cluster behind Terraform's back and require plan to
+    # notice. If drift detection ever silently stops working, this job fails.
+    runs-on: ubuntu-latest
+    needs: static
+    defaults: { run: { working-directory: deploy } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with: { terraform_wrapper: false }
+      - uses: helm/kind-action@v1
+        with: { install_only: true }
+      - name: conftest
+        run: |
+          curl -sSL https://github.com/open-policy-agent/conftest/releases/download/v0.56.0/conftest_0.56.0_Linux_x86_64.tar.gz | tar xz conftest
+          sudo mv conftest /usr/local/bin/
+      - run: docker build -t gridpilot:local ..
+      - run: ./scripts/state_backend.sh up
+      - run: terraform init -backend-config=backend.hcl -input=false
+      - run: terraform workspace select -or-create dev
+      - name: policy gate on the plan
+        run: |
+          terraform plan -input=false -var-file=workspaces/dev.tfvars -out=plan.out
+          terraform show -json plan.out > plan.json
+          conftest test --policy policy plan.json
+      - run: terraform apply -auto-approve -input=false -var-file=workspaces/dev.tfvars
+      - run: curl -fsS --retry 30 --retry-delay 2 --retry-all-errors http://127.0.0.1:30800/api/state > /dev/null
+      - run: ./scripts/drift_test.sh
+      - if: always()
+        run: terraform destroy -auto-approve -input=false -var-file=workspaces/dev.tfvars || true
